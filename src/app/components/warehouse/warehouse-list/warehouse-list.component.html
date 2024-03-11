@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Listado de Almacenes</h2>
+  <table mat-table [dataSource]="warehousesDataSource" class="mat-elevation-z8">
+
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</th>
+      <td mat-cell *matCellDef="let warehouse">
+        <button mat-icon-button color="warn" *ngIf="column === 'actions'" (click)="deleteWarehouse(warehouse.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" *ngIf="column === 'actions'" (click)="updateWarehouse(warehouse.id)">
+          <mat-icon>update</mat-icon>
+        </button>
+        <span *ngIf="column !== 'actions'">{{ warehouse[column] }}</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <button mat-button color="primary" routerLink="/createwarehouse">Crear Alamcen</button>
+  <button mat-button color="accent" (click)="goBack()">Regresar</button>
+
+</div>

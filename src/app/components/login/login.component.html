@@ -1,0 +1,19 @@
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>Login</h2>
+  <div class="input-container">
+    <mat-form-field>
+      <input matInput placeholder="Usuario" formControlName="username">
+      <mat-error *ngIf="loginForm.get('username')?.errors?.['required']">El username es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Contraseña" formControlName="password">
+      <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
+    <button mat-raised-button color="accent" type="button" (click)="onRegister()">Registrar</button>
+  </div>
+</form>

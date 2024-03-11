@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>Crear Nuevo Camión</h2>
+  <form [formGroup]="truckForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Marca" formControlName="brand" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Modelo" formControlName="model" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Número de Registro" formControlName="registrationNumber" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Número de Chasis" formControlName="chassisNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tipo de Motor" formControlName="engineType">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Capacidad de Carga Máxima" formControlName="maxLoadCapacity" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Cilindrada del Motor" formControlName="engineDisplacement">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Potencia del Motor" formControlName="horsepower">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Año de Fabricación" formControlName="year">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tipo de Combustible" formControlName="fuelType">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Seleccionar Almacén</mat-label>
+          <mat-select formControlName="warehouseId" [disabled]="warehouses.length === 0">
+            <mat-option *ngFor="let warehouse of warehouses" [value]="warehouse.id">
+              {{ warehouse.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="warehouses.length === 0">No hay opciones disponibles</div>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button mat-button color="primary" type="submit">Guardar</button>
+      <button mat-button color="accent" (click)="goBack()">Regresar</button>
+    </div>
+  </form>
+</div>

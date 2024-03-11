@@ -1,0 +1,93 @@
+<div class="container">
+  <h2>{{ 'Crear Nuevo Conductor' }}</h2>
+  <form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Nombre" formControlName="firstName" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Apellido" formControlName="lastName" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Teléfono" formControlName="phoneNumber">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Correo Electrónico" formControlName="emailAddress">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Dirección" formControlName="address">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Ciudad" formControlName="city">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Estado" formControlName="state">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="País" formControlName="country">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Código Postal" formControlName="postalCode">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Número de Licencia" formControlName="licenseNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tipo de Licencia" formControlName="licenseType">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Nivel de Experiencia" formControlName="experienceLevel">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Seleccionar Camion</mat-label>
+          <mat-select formControlName="truckId" [disabled]="trucks.length === 0">
+            <mat-option *ngFor="let truck of trucks" [value]="truck.id">
+              {{ truck.brand }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="trucks.length === 0">No hay opciones disponibles</div>
+        <mat-form-field class="full-width">
+          <mat-label>Certificación</mat-label>
+          <mat-select formControlName="hasCertification">
+            <mat-option [value]="true">Sí</mat-option>
+            <mat-option [value]="false">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button mat-button color="primary" type="submit">Guardar</button>
+      <button mat-button color="accent" (click)="goBack()">Regresar</button>
+    </div>
+  </form>
+</div>

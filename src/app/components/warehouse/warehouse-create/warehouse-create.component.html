@@ -1,0 +1,69 @@
+<div class="container">
+  <h2>{{ editing ? 'Editar Almacén' : 'Crear Nuevo Almacén' }}</h2>
+  <form [formGroup]="warehouseForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Nombre" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Dirección" formControlName="address" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Ciudad" formControlName="city" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="País" formControlName="country" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Código Postal" formControlName="postalCode" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Número de Teléfono" formControlName="phoneNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Correo Electrónico" formControlName="emailAddress">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Capacidad" formControlName="capacity" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tipo de Almacenamiento" formControlName="storageType">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Nivel de Seguridad" formControlName="securityLevel">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Horario de Operación" formControlName="operatingHours">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Estado" formControlName="status">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="button-row">
+      <button mat-button color="primary" type="submit">{{ editing ? 'Guardar' : 'Crear' }}</button>
+      <button mat-button color="accent" (click)="goBack()">Regresar</button>
+    </div>
+  </form>
+</div>
